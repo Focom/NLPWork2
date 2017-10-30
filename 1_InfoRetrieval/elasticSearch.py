@@ -12,16 +12,17 @@ def insertAllDocuments():
         content = json.load(open(file))
         # print (file)
         es.index(index="factbook", doc_type="country", id=i, body=content)
-        i+=1
+        i += 1
 
 
 question = {
- "query": {
-        "query_string" : {
-            "query" : "+European nations with +viking ancestors",
-            "fields": ["Intro","Geography"]
-        }
-    }
+    "query": {
+ "bool": {
+         "must": {"match": {"_all": "europe"}, "match": {"_all": "viking"}, "match": {"_all": "ancestor"}}
+    }}
 }
+
+
+
 
 print(es.search(index="factbook", doc_type="country", body=question))
