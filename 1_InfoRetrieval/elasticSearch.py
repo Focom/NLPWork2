@@ -14,12 +14,6 @@ def insertAllDocuments():
         es.index(index="factbook", doc_type="country", id=i, body=content)
         i+=1
 
-# json = json.load(open('./JSON/Algeria.json'))
-
-# es.index(index='test-index', doc_type='test', id=1, body=json)
-# es.delete(index='test-index', doc_type='test',id=1)
-# insertAllDocuments()
-
 
 question = {
  "query": {
