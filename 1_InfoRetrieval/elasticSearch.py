@@ -16,6 +16,10 @@ def insertAllDocuments():
 
 def getNameFromQuery(query):
     data = es.search(index="factbook", doc_type="country", body=query)
+    result = []
+    for i in range(0,len(data["hits"]["hits"])):
+        result.append(data["hits"]["hits"][i]["_source"]["Name"])
+    return result
 
 question = {
     "query": {
@@ -31,4 +35,4 @@ question = {
 
 
 
-# print(es.search(index="factbook", doc_type="country", body=question))
+print(getNameFromQuery(question))
