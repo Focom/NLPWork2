@@ -14,15 +14,21 @@ def insertAllDocuments():
         es.index(index="factbook", doc_type="country", id=i, body=content)
         i += 1
 
+def getNameFromQuery(query):
+    data = es.search(index="factbook", doc_type="country", body=query)
 
 question = {
     "query": {
- "bool": {
-         "must": {"match": {"_all": "europe"}, "match": {"_all": "viking"}, "match": {"_all": "ancestor"}}
-    }}
-}
+        "bool" : {
+            "must" : {
+                "query_string" : {
+                    "query" : "island"
+                }
+            }
+    }
+}}
 
 
 
 
-print(es.search(index="factbook", doc_type="country", body=question))
+# print(es.search(index="factbook", doc_type="country", body=question))
