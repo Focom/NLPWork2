@@ -21,18 +21,35 @@ def getNameFromQuery(query):
         result.append(data["hits"]["hits"][i]["_source"]["Name"])
     return result
 
-question = {
-    "query": {
-        "bool" : {
-            "must" : {
-                "query_string" : {
-                    "query" : "island"
+def askQuestion(number):
+    words = helper.getWordFromQuestion(number)
+    question = {
+        "query": {
+                    "query_string" : {
+                        "query" : words
+                    }
                 }
-            }
     }
-}}
+    return getNameFromQuery(question)
 
+def getPrecision(number):
+    result = askQuestion(number)
+    expected = helper.getResponse(number)
+    total_result = len(result)
+    total_expected = len(expected)
+    score = 0
+    for test in result:
+        for correct in expected:
+            if(test == correct):
+                score +=1
+    precision = score / total_result
+    return precision
 
+def getMAP():
+    scores = []
+    for i in range(0,20):
+        scores.append(getPrecision(i))
+    mean = helper.getAverageArray(scores)
+    return mean / 20
 
-
-print(getNameFromQuery(question))
+print(getMAP())

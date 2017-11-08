@@ -32,3 +32,19 @@ def writeAnswerToFile(number, answer):
     with open('responses.json', 'w') as f:
         json.dump(doc, f)
 
+def getWordFromQuestion(number):
+    with open('questions.json', 'r') as f:
+        doc = json.load(f)
+    return doc["questions"][number]
+
+def getResponse(number):
+    with open('responses.json', 'r') as f:
+        doc = json.load(f)
+    return doc["responses"][str(number+1)]
+
+def getAverageArray(array):
+    total = 0
+    for i in range(0,len(array)):
+        total += array[i]
+    return total/len(array)
+    
