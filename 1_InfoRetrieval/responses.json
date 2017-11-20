@@ -1,0 +1,177 @@
+{
+    "responses": {
+        "1": [
+            "Denmark",
+            "Norway",
+            "Sweden",
+            "Iceland"
+        ],
+        "2": [
+            "Greece",
+            "Portugal",
+            "Ireland",
+            "Italy",
+            "Spain"
+        ],
+        "3": [
+            "Kuwait",
+            "Macau",
+            "Congo",
+            "Norway",
+            "Brunei"
+        ],
+        "4": [
+            "Belarus",
+            "Bhutan",
+            "Bosnia",
+            "China",
+            "Cuba",
+            "Iran",
+            "Korea",
+            "Kyrgyzstan",
+            "Mongolia",
+            "Venezuela"
+        ],
+        "5": [
+            "Holy",
+            "San",
+            "Liechtenstein",
+            "Andorra",
+            "Luxembourg",
+            "West"
+        ],
+        "6": [
+            "Argentina",
+            "Bolivia",
+            "Chile",
+            "Ecuador",
+            "Peru",
+            "Venezuela"
+        ],
+        "7": [
+            "Laos",
+            "Cambodia",
+            "Vietnam",
+            "India",
+            "Sri",
+            "Taiwan",
+            "Lebanon",
+            "Syria"
+        ],
+        "8": [
+            "Guinea",
+            "Togo",
+            "Benin",
+            "Nigeria",
+            "Cameroon",
+            "Mozambique",
+            "Botswana",
+            "Sierra",
+            "Liberia",
+            "Cote",
+            "Ghana",
+            "Central",
+            "Chad",
+            "Uganda",
+            "Rwanda",
+            "Burundi",
+            "Kenya",
+            "Tanzania",
+            "Malawi",
+            "Zambia",
+            "Zimbabwe",
+            "Sudan",
+            "Ethiopia",
+            "Somalia",
+            "Congo",
+            "Angola",
+            "South"
+        ],
+        "9": [
+            "Cuba",
+            "Dominican",
+            "Puerto",
+            "Trinidad"
+        ],
+        "10": [
+            "Afghanistan",
+            "Burma",
+            "Cambodia",
+            "China",
+            "Djibouti",
+            "India",
+            "Indonesia",
+            "Iran",
+            "Iraq",
+            "Jordan",
+            "Korea",
+            "Laos",
+            "Nepal",
+            "Turkey",
+            "Turkmenistan",
+            "Uzbekistan"
+        ],
+        "11": [
+            "Senegal",
+            "Guinea",
+            "Liberia",
+            "Sierra",
+            "Mali",
+            "Cote"
+        ],
+        "12": [
+            "United"
+        ],
+        "13": [
+            "Maldives",
+            "Sri",
+            "Comoros",
+            "Madagascar",
+            "Mauritius",
+            "Seychelles"
+        ],
+        "14": [
+            "Cyprus"
+        ],
+        "15": [
+            "Antarctica"
+        ],
+        "16": [
+            "Belgium",
+            "Greece",
+            "Tunisia"
+        ],
+        "17": [
+            "China",
+            "Burma",
+            "Laos",
+            "Thailand",
+            "Cambodia",
+            "Vietnam"
+        ],
+        "18": [
+            "Russia",
+            "United",
+            "France"
+        ],
+        "19": [
+            "Benin",
+            "Burkina",
+            "Ethiopia",
+            "Cote",
+            "Ghana",
+            "Cameroon",
+            "Malawi",
+            "Mozambique",
+            "Mali",
+            "Senegal",
+            "Tanzania",
+            "Uganda",
+            "Zambia",
+            "Zimbabwe"
+        ],
+        "20": [
+            "Brazil"
+        ]
+    }
+}
