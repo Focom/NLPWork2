@@ -1,6 +1,4 @@
-import glob
-import json
-import re
+import glob, json, re
 
 def getAllFile():
     return(glob.glob("./factbook/geos/*.html"))

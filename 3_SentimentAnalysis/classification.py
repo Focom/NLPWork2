@@ -1,4 +1,4 @@
-import Exo3, pandas, json
+import pipeline, pandas, json
 from sklearn.naive_bayes import MultinomialNB as mod
 from sklearn.ensemble import RandomForestClassifier as mod2
 from sklearn.feature_extraction.text import CountVectorizer
@@ -10,13 +10,11 @@ def choiceClassifier(i):
         classifier = mod
     else:
         classifier = mod2
-
     return classifier
 
 
-def constructModel( cc, frequencies):
-
-    classifieur = choiceClassifier(2)
+def constructModel(cc, frequencies):
+    classifieur = choiceClassifier(1) # A modifier pour changer le type dalgorythme
     result=[]
     df_train = pandas.read_csv('forClassification.csv')
     final = pandas.DataFrame(data=df_train)
@@ -33,7 +31,7 @@ def constructModel( cc, frequencies):
     if not frequencies:
         count_vectorizer = CountVectorizer()
     else:
-        count_vectorizer = TfidfVectorizer(min_df=10)  ## Retire tous ce qui a une frequence max de 10
+        count_vectorizer = TfidfVectorizer(min_df=6)  ## Retire tous ce qui a une frequence max de 10
 
     counts = count_vectorizer.fit_transform(vecteurQuestion.values)
 
@@ -47,7 +45,6 @@ def constructModel( cc, frequencies):
     result.append(predictions)
     result.append(vecteurClasseTest)
     result.append(examples)
-
     return result
 
 def construcTableRP(predictions, trueclass, Model):
@@ -55,34 +52,26 @@ def construcTableRP(predictions, trueclass, Model):
     predictions=Model[0]
     trueclass=Model[1]
     for i in range(0, len(Model[0])):
-
         if (predictions[i] == trueclass[i]):
 
             result[str(i)] = ({
                 "class": predictions[i],
                 "bool": True
             })
-
         else:
             result[str(i)] = ({
                 "class": predictions[i],
                 "bool": False
             })
-
     return result
 
-
-
 def truePositive(classe, Model):
-
     data = construcTableRP(Model[0],
                            Model[1],Model)
     result = 0
     for i in range(0, len(data)):
-
         if ((classe == data[str(i)]["class"]) & (data[str(i)]["bool"])):
             result += 1
-
     return result
 
 
@@ -91,10 +80,8 @@ def falsePositive(classe, Model):
                            Model[1], Model)
     result = 0
     for i in range(0, len(data)):
-
         if ((classe == data[str(i)]["class"]) & (data[str(i)]["bool"] == False)):
             result += 1
-
     return result
 
 
@@ -102,12 +89,9 @@ def trueNegative(classeOption,Model):
     data = Model[1]
     data.sort()
     result = 0
-
     for classe in data:
-
         if (classe != classeOption):
             result += 1
-
     return result
 
 
@@ -115,12 +99,9 @@ def falseNegative(classeOption, Model):
     data = Model[1]
     data.sort()
     result = 0
-
     for classe in data:
-
         if (classe == classeOption):
             result += 1
-
     return result
 
 
@@ -132,21 +113,23 @@ def precision(classe, Model):
 def recall(classe, Model):
     return truePositive(classe, Model) / (falseNegative(classe, Model))
 
-Model=constructModel(1500, False)
 
 with open('dicoClass.json') as json_data:
     dico = json.load(json_data)
 
-Exo3.createliste(dico)
 
+pipeline.createliste(dico)
+
+print("Predicition sans le pretraitement de frequence")
+
+Model=constructModel(1500, False)
 print(precision("Positif",Model))
 print(precision("Negatif", Model))
-
+print("")
 print("=========================")
-Model=constructModel(1500, True)
+print("")
+print("Predicition avec le pretraitement de frequence")
 
+Model=constructModel(1500, True)
 print(precision("Positif", Model))
 print(precision("Negatif", Model))
-
-
-
